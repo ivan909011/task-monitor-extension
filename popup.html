@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="popup.css"><title>Task Monitor Extension</title></head>
+  <body>
+    <main>
+      <h1>Task Monitor Extension</h1>
+      <p id="pageStatus" class="status">Checking tab…</p>
+      <label>Refresh every <input id="interval" type="number" min="5" step="1" value="10"> seconds</label>
+      <label class="toggle"><input id="sound" type="checkbox" checked> Sound alert</label>
+      <label class="toggle"><input id="desktop" type="checkbox" checked> Desktop notification</label>
+      <details>
+        <summary>Telegram (optional)</summary>
+        <p class="hint">Leave blank to disable. Credentials are saved in this browser profile (not encrypted). Enabled alerts send up to three row previews to Telegram.</p>
+        <label>Bot token <input id="telegramToken" type="password" autocomplete="off" placeholder="Enter your own value"></label>
+        <label>Chat ID <input id="telegramChatId" type="text" autocomplete="off" placeholder="Enter your own value"></label>
+        <label class="toggle"><input id="telegram" type="checkbox"> Send Telegram alerts</label>
+      </details>
+      <div class="buttons"><button id="start" class="primary">Start monitoring</button><button id="stop">Stop</button></div>
+      <button id="test" class="test">Test alerts</button>
+      <p class="footnote">Alerts only. This extension never clicks, accepts, or submits tasks.</p>
+    </main>
+    <script src="config.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

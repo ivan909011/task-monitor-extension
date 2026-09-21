@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Task Monitor Extension",
+  "version": "1.0.0",
+  "description": "Monitors a configured task page and alerts when visible rows appear. Supports sound, desktop notifications, and optional Telegram alerts.",
+  "permissions": [
+    "alarms",
+    "notifications",
+    "storage",
+    "tabs",
+    "offscreen"
+  ],
+  "host_permissions": [
+    "https://example.com/*",
+    "https://api.telegram.org/*"
+  ],
+  "action": {
+    "default_title": "Task Monitor Extension",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://example.com/*"
+      ],
+      "js": [
+        "config.js",
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "minimum_chrome_version": "120"
+}
